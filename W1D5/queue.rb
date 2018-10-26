@@ -10,7 +10,7 @@ class Queue
   end
 
   def dequeue
-
+    @stack.pop
   end
 
   def peek

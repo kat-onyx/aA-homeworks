@@ -6,7 +6,7 @@ class Queue
   end
 
   def enqueue(el)
-
+    @stack.unshift(el)
   end
 
   def dequeue
@@ -14,6 +14,6 @@ class Queue
   end
 
   def peek
-    
+
   end
 end

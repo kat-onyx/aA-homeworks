@@ -10,14 +10,22 @@ class Simon
   end
 
   def play
-
+    until @game_over
+      take_turn
+    end
+    game_over_message
+    reset_game
   end
 
   def take_turn
     show_sequence
-    require_sequence
-    @sequence_length += 1
-    round_success_message if !@game_over
+    # sleep(2)
+    # system "clear"
+    user_input = require_sequence
+    if !@game_over
+      @sequence_length += 1
+      round_success_message
+    end
   end
 
   def show_sequence
@@ -25,7 +33,9 @@ class Simon
   end
 
   def require_sequence
-
+    puts "Enter the sequence...if you can remember it!"
+    puts ">"
+    sequence = gets.chomp.split(" ")
   end
 
   def add_random_color
@@ -34,11 +44,11 @@ class Simon
   end
 
   def round_success_message
-
+    puts "It's not over, yet!"
   end
 
   def game_over_message
-
+    puts "Whoops! Not the right color."
   end
 
   def reset_game

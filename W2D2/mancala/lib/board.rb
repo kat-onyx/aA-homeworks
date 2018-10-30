@@ -1,3 +1,4 @@
+require 'byebug'
 class Board
   attr_accessor :cups, :name1, :name2
 
@@ -29,16 +30,14 @@ class Board
 
     i = 1
     until stones.empty?
+
+      current_cup = @cups[start_pos + i]
       if current_player_name == @name1
-        if @cups[start_pos + i] == 6
-          @cups[start_pos + i] << stones.pop
-          i += 1
-        end
+        current_cup << stones.pop unless start_pos + i == 13
+        i += 1
       elsif current_player_name == @name2
-        if @cups[start_pos + i] == 13
-          @cups[start_pos + i] << stones.pop
-          i += 1
-        end
+        current_cup << stones.pop unless start_pos + i == 6
+        i += 1
       end
     end
     render

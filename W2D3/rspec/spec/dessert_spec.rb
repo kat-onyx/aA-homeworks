@@ -6,8 +6,8 @@ Instructions: implement all of the pending specs (the `it` statements without bl
 =end
 
 describe Dessert do
-  let(:chef) { double("chef") }
-  subject(:dessert) { Dessert.new("chocolate", 10, "chef") }
+  let(:chef) { double("chef", name: "Kat") }
+  subject(:dessert) { Dessert.new("chocolate", 10, chef) }
 
   describe "#initialize" do
     it "sets a type" do
@@ -48,7 +48,8 @@ describe Dessert do
 
   describe "#serve" do
     it "contains the titleized version of the chef's name" do
-      expect(dessert.serve).to include(chef.titleize)
+      allow(chef).to receive(:titleize).and_return("Chef Kat the Great Baker")
+      expect(dessert.serve).to eq ("Chef Kat the Great Baker has made 10 chocolates!")
     end
 
   end

@@ -1,7 +1,9 @@
 require 'active_support/inflector'
+require 'chef'
+
 
 class Dessert
-  attr_reader :type, :quantity, :ingredients, :temp
+  attr_reader :type, :quantity, :ingredients, :temp, :chef
 
   def initialize(type, quantity, chef)
     raise ArgumentError unless quantity.is_a?(Integer)

@@ -54,6 +54,7 @@ end
 
 
 def dominant_octopus(fishies)
+  #prc nil
   fishies.merge_sort(&prc)[-1]
 end
 
@@ -66,4 +67,31 @@ def clever_octopus(fishies)
     longest_fish = fish if fish.length > longest_fish.length
   end
   longest_fish
+end
+
+# Given a tile direction, iterate through a tiles array to return the tentacle number (tile index) the octopus must move.
+# This should take O(n) time.
+tiles_array = ["up", "right-up", "right", "right-down", "down", "left-down", "left",  "left-up" ]
+
+def slow_dance(direction, tiles)
+  tiles.each_with_index do |tile, i|
+    return i if tile == direction
+    end
+  end
+end
+
+# Now that the octopus is warmed up, let's help her dance faster. Use a different
+#  data structure and write a new function so that you can access the tentacle number in O(1) time.
+tiles_hash = {
+   "up" => 0,
+   "right-up" => 1,
+   "right" => 2,
+   "right-down" => 3,
+   "down" => 4,
+   "left-down" => 5,
+   "left" => 6,
+   "left-up" => 7
+}
+def constant_dance(direction, tiles_hash)
+  return tiles_hash[direction]
 end

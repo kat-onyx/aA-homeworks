@@ -27,7 +27,7 @@ class Board
   def make_move(start_pos, current_player_name)
     stones = @cups[start_pos]
     @cups[start_pos] = []
-
+    debugger
     i = 1
     until stones.empty?
 

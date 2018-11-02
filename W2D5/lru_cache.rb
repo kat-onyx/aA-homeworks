@@ -24,10 +24,10 @@ class LRUCache
 
   def show
     # shows the items in the cache, with the LRU item first
-    @buckets
+    p @buckets
+    return nil
   end
 
   private
   # helper methods go here!
-
 end

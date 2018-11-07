@@ -16,6 +16,7 @@ class Play
 
   def self.all
     data = PlayDBConnection.instance.execute("SELECT * FROM plays")
+    p data
     data.map { |datum| Play.new(datum) }
   end
 

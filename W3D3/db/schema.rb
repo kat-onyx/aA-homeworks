@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2018_11_07_071437) do
 
   create_table "people", force: :cascade do |t|
     t.string "name", null: false
-    t.string "house_id", null: false
+    t.integer "house_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

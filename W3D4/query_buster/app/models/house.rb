@@ -20,5 +20,25 @@ class House < ApplicationRecord
 
   def better_seeds_query
     # TODO: your code here
+  #   plants = self.plants
+  #     .select('plants.*, COUNT(*) AS seeds')
+  #     .joins(:seeds)
+  #     .group('plants.id')
+  #
+  #   seeds = []
+  #   plants.each do |plant|
+  #     seeds << plant.seeds
+  #   end
+  #   seeds
+  # end
+
+    plants = self.plants.includes(:seeds)
+
+    seeds = []
+
+    plants.each do |plant|
+      seeds << plant.seeds
+    end
+    seeds
   end
 end

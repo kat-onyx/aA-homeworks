@@ -1,0 +1,23 @@
+/* PHASE 1: Header */
+
+body {
+  /* Write your css here... */
+
+}
+
+.header {
+  background: #f00
+  color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+.header a {
+  display: block;
+  padding: 10px 10px;
+}
+
+.header-nav {
+  margin: auto;
+  width: 850px
+
+}

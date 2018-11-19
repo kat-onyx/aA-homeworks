@@ -9,11 +9,13 @@ span, article, footer, time, small {
 }
 
 ul {
-
+  list-style: none;
 }
 
 img {
-
+  display: block;
+  width: 100px;
+  height: auto;
 }
 
 input[type="password"],

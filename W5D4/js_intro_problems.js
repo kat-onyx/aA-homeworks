@@ -48,5 +48,60 @@ function mysteryScoping5() {
   let x = 'out of block again';
   console.log(x);
 }
-
 //let declared twice in the same scope.
+
+function madLib(verb, adj, noun) {
+  return `We shall ${verb.toUpperCase()} the ${adj.toUpperCase()} ${noun.toUpperCase()}.`
+}
+
+function isSubstring(string, word) {
+  var str = string.split(" ");
+
+  for (let i = 0; i < str.length; i++ ) {
+    if (word == str[i])
+      return true;
+  }
+  return false;
+}
+
+function fizzBuzz(array) {
+  fizzed = []
+
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] % 3 === 0 && array[i] % 5 === 0)
+      continue;
+    else if (array[i] % 3 === 0)
+      fizzed.push(array[i]);
+    else if (array[i] % 5 === 0)
+      fizzed.push(array[i]);
+  }
+
+  return fizzed;
+}
+
+function isPrime(num) {
+  if (num < 2) {
+    return false;
+  }
+
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0)
+      return false;
+  }
+  return true;
+}
+
+function sumOfNPrimes(n) {
+  let sum = 0;
+  let countPrimes = 0;
+
+  while (countPrimes < n) {
+    if (isPrime(i)) {
+      sum += i;
+      countPrimes += 1;
+    }
+    i++;
+  }
+
+  return sum;
+}

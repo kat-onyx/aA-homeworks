@@ -10,6 +10,19 @@ function Elephant {
   this.tricks = tricks;
 }
 
-Elephant.prototype.trumpet {
-  
+Elephant.prototype.trumpet = function() {
+  console.log(`${this.name} the elephant goes 'phrRRRRRRRRRRR!!!!!!!`);
+}
+
+Elephant.prototype.grow = function() {
+  this.height += 12;
+}
+
+Elephant.prototype.addTrick = function() {
+  this.tricks.push('Balance a ball');
+}
+
+Elephant.prototype.play = function() {
+  i = Math.floor(Math.random() * this.tricks.length)
+  console.log(`${this.name} plays ${this.tricks[i]}`)
 }

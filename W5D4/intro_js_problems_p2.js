@@ -1,6 +1,10 @@
 function titleize(names, cb) {
-  let titleized = names.map(name => name.toUpperCase)
+  let titleized = names.map(name => `Mx. ${name} JIngleheimer Schmidt`)
   cb(titleized)
+
+  titelize(['Mary', 'Joe', 'Bob'], (names) => {
+    names.forEach(name => console.log(name))
+  })
 }
 //not finished
 

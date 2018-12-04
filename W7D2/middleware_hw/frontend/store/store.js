@@ -3,7 +3,7 @@ import rootReducer from '../reducers/root_reducer';
 import applyMiddleware from 'redux'
 
 const configureStore = (preloadedState = {}) => {
-  const store = createStore(rootReducer, preloadedState, applyMiddleware);
+  const store = createStore(rootReducer, preloadedState, applyMiddleware(addLoggingToDispatch));
   store.subscribe(() => {
     localStorage.state = JSON.stringify(store.getState());
   });

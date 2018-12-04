@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const store = configureStore(preloadedState);
   
   // store.dispatch = addLoggingToDispatch(store);
-  store.dispatch = applyMiddlewares();
+  // store.dispatch = applyMiddlewares(store, addLoggingToDispatch);
   const root = document.getElementById('content');
   ReactDOM.render(<Root store={store} />, root);
 });
@@ -24,23 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
 //     console.log(store.getState())
 //   }
 
-  function addLoggingToDispatch(store) {
-    return function(next) {
-      return function(action) {
-        console.log(store.getState())
-            console.log(action);
-            store(action);
-            console.log(store.getState())
-      }
-    }
-  }
 
-  const applyMiddlewares = (store, ...middlewares) {
-    let dispatch = store.dispatch;
-    middlewares.forEach( (middleware) => {
-      dispatch = middleware(store)(dispatch);
-    }) 
 
-    return Object.assign({}, store, { dispatch })
-  }
+  // const applyMiddlewares = (store, ...middlewares) {
+  //   let dispatch = store.dispatch;
+  //   middlewares.forEach( (middleware) => {
+  //     dispatch = middleware(store)(dispatch);
+  //   }) 
+
+  //   return Object.assign({}, store, { dispatch })
+  // }
 }

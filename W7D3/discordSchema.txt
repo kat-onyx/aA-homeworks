@@ -1,0 +1,58 @@
+
+
+Users Table 
+_____________________
+id 
+username: unique
+email: unique
+password_digest
+session_token, unique
+
+index username 
+index session_token
+
+
+Server Table
+_____________________
+id
+user_id (associations to both owners and subs of channel)
+channel_id (has_many associations to channel)
+server_name 
+
+index user_id 
+index channel_id
+
+
+Channel (server) Table 
+____________________
+id 
+user_id 
+server_id (belongs to association to server)
+message_id
+name 
+
+index message_id
+index server_id 
+index user_id
+
+Message Table
+____________________
+id
+channel_id 
+author_id
+body
+
+index channel_id
+index author_id
+
+
+
+
+
+
+~Not really necessary~
+Likes/Emotes Table
+_____________________
+id 
+message_id 
+user_id 
